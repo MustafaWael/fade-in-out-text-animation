@@ -1,7 +1,6 @@
-import { useScroll, useTransform, motion, useWillChange } from 'framer-motion';
+import { useScroll, useTransform, motion } from 'framer-motion';
 
 const Char = ({ wrapperRef, children, index, charactersLength }) => {
-  const willChange = useWillChange();
   const { scrollYProgress } = useScroll({ target: wrapperRef });
   const startingPosition = index / (charactersLength + 5);
   const endingPosition = (index + 5) / (charactersLength + 5);
@@ -11,7 +10,7 @@ const Char = ({ wrapperRef, children, index, charactersLength }) => {
     [0.2, 1]
   );
 
-  return <motion.span style={{ opacity, willChange }}>{children}</motion.span>;
+  return <motion.span style={{ opacity }}>{children}</motion.span>;
 };
 
 export default Char;
