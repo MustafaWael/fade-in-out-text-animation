@@ -1,3 +1,4 @@
+import { AnimatePresence, useInView, motion } from 'framer-motion';
 import { useRef } from 'react';
 import useSplitText from '../hooks/useSplitText';
 import Char from './Char';
@@ -5,6 +6,7 @@ import Char from './Char';
 const Section = ({ textAnimation = '', title = '' }) => {
   const wrapperRef = useRef(null);
   const { charactersArray } = useSplitText(textAnimation);
+  const inView = useInView(wrapperRef);
 
   return (
     <section className="wrapper-section" ref={wrapperRef}>
@@ -17,6 +19,7 @@ const Section = ({ textAnimation = '', title = '' }) => {
               wrapperRef={wrapperRef}
               index={index}
               charactersLength={charactersArray.length}
+              inView={inView}
             >
               {character}
             </Char>
