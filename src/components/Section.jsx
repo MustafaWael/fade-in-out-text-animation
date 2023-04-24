@@ -12,19 +12,20 @@ const Section = ({ textAnimation = '', title = '' }) => {
     <section className="wrapper-section" ref={wrapperRef}>
       <div className="sticky">
         <h1>{title}</h1>
-        <p>
-          {charactersArray.map((character, index) => (
-            <Char
-              key={character + index}
-              wrapperRef={wrapperRef}
-              index={index}
-              charactersLength={charactersArray.length}
-              inView={inView}
-            >
-              {character}
-            </Char>
-          ))}
-        </p>
+        {inView && (
+          <p>
+            {charactersArray.map((character, index) => (
+              <Char
+                key={character + index}
+                wrapperRef={wrapperRef}
+                index={index}
+                charactersLength={charactersArray.length}
+              >
+                {character}
+              </Char>
+            ))}
+          </p>
+        )}
       </div>
     </section>
   );

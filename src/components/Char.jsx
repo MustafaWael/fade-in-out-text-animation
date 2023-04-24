@@ -1,4 +1,4 @@
-import { useScroll, useTransform, motion, useInView } from 'framer-motion';
+import { useScroll, useTransform, motion } from 'framer-motion';
 
 const Char = ({ wrapperRef, children, index, charactersLength }) => {
   const { scrollYProgress } = useScroll({ target: wrapperRef });
@@ -10,9 +10,7 @@ const Char = ({ wrapperRef, children, index, charactersLength }) => {
     [0.2, 1]
   );
 
-  const inView = useInView(wrapperRef)
-
-  return <motion.span style={{ opacity }}>{inView && children}</motion.span>;
+  return <motion.span style={{ opacity }}>{children}</motion.span>;
 };
 
 export default Char;
